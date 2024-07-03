@@ -21,7 +21,7 @@ function setAcc(size,color){
 	console.log(size)
 	document.getElementById("fontsize").value = size
 	document.getElementById("fontcolor").value= color
-	document.documentElement.style.setProperty('--fontsize',size);
+	document.documentElement.style.setProperty('--fontsize',Number(size));
     document.documentElement.style.setProperty('--fontcolor',color);
 	
 }
