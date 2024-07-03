@@ -7,16 +7,19 @@ let checkFontSize = cookies.find((ele)=>ele[0]=="fontsize")
 let checkFontColor=cookies.find((ele)=>ele[0]=="fontcolor")
 
 if(checkFontColor && checkFontSize){
-	setAcc(checkFontSize[1],checkFontColor[1])
+	setAcc(event,checkFontSize[1],checkFontColor[1])
 }
-function savePreferences(){
+function savePreferences(event){
+	event.preventDefault()
 	let fontsize =document.getElementById("fontsize").value
 	let fontcolor = document.getElementById("fontcolor").value
 	document.cookie=`fontsize=${fontsize}`
 	document.cookie = `fontcolor=${fontcolor}`
-	setAcc(fontsize,fontcolor)
+	setAcc(event,fontsize,fontcolor)
 }
-function setAcc(size,color){
+function setAcc(event,size,color){
+	event.preventDefault()
+	console.log(size)
 	document.getElementById("fontsize").value = size
 	document.getElementById("fontcolor").value= color
 	document.documentElement.style.setProperty('--fontsize',size);
